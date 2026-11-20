@@ -1,0 +1,34 @@
+{
+  "name": "2026_DiracXaaS_SME",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "slidev build --download",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fstagni/2026_DiracXaaS_SME.git"
+  },
+  "keywords": [
+    "diracx",
+    "dirac",
+    "diracgrid",
+    "SME",
+    "as-a-service"
+  ],
+  "author": "Federico Stagni",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/fstagni/2026_DiracXaaS_SME/issues"
+  },
+  "homepage": "https://github.com/fstagni/2026_DiracXaaS_SME#readme",
+  "description": "",
+  "dependencies": {
+    "slidev-theme-neversink": "^0.4.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.9.1",
+    "playwright-chromium": "^1.64.1"
+  }
+}
