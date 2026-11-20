@@ -321,13 +321,13 @@ title: users
 A few dozens communities, of very different sizes:
 
 - **Big** (and carrying legacy): **LHCb**, **Belle II** (KEK/BNL), **CTAO**, **CMS** (joining 2026)
-- **Small-medium installations that want an all-in-one system**: **JUNO**, **GridPP**, **BES III**, **FCC** (joining 2026), ...
+- **Multi-VO installations** serving many small communities at once: **EGI** (hosted at CC-IN2P3), **GridPP**, **JINR** -- plus **JUNO**, **BES III**, **FCC** (joining 2026), ...
 - Plus several **national/provincial cloud** installations and smaller experiments
 
 <br>
 
 <AdmonitionType type='info' >
-Several of these are, in CERN terms, exactly "SMEs": they have the same data/production challenges as the big ones, with a fraction of the people
+The multi-VO installations are, in CERN terms, exactly "SME enablers": they give small communities the same data/production capabilities as the big ones, with a fraction of the people
 </AdmonitionType>
 
 <br>
@@ -781,6 +781,31 @@ Priorities, not commitments. New requirements can reorder this page, and the tea
 </AdmonitionType>
 
 <span class="stamp">From "DiracX developments: directions" · A. Boyer · <a href="https://indico.cern.ch/event/1588323/contributions/7301774/">DUW12</a></span>
+
+---
+layout: top-title
+color: diracx-light
+align: cm
+title: sme-enablers
+---
+
+:: title ::
+
+# Backup: multi-VO installations, the "SME enablers"
+
+:: content ::
+
+Three non-CERN, **multi-VO** DIRAC installations (DUW12 reports):
+
+- **EGI** (hosted at CC-IN2P3): **4–5 active VOs** (WeNMR, biomed, Auger, Scigine, KM3NeT), 1–2K running jobs, **~35M jobs/year**; 5 VM servers, databases provided by the centre, Check-In IdP
+- **GridPP**: a "catch-all" VO for **NA62, LZ, T2K/HyperK, SHiP, XLZD**, mu3e, MoEDAL, SNO+, pheno, ...; **55M files / 62.7M replicas** in the file catalog, own FTS server
+- **JINR**: since 2016, VOs from the NICA ecosystem (**BM@N, MPD, SPD**) and **Baikal-GVD**; **~5M jobs** completed, **~3700 years** of walltime, resources across 10+ sites
+
+<AdmonitionType type='info' >
+The "one installation, many small communities" model has been working for years -- DiracXaaS would turn it into a managed service
+</AdmonitionType>
+
+<span class="stamp">From DUW12 reports: EGI &amp; IN2P3 · A. Tsaregorodtsev; GridPP · D. Bauer, S. Fayer; JINR · I. Pelevanyuk -- Prague, October 2026</span>
 
 ---
 layout: top-title
