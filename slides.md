@@ -104,16 +104,22 @@ timeline
 
 ---
 layout: top-title
-color: diracx-light
-align: cm
+color: gray-light
+align: c
 title: core-functionalities
+clicks: 4
 ---
 
 :: title ::
 
-## Core functionalities (enormous simplification)
+## Core functionalities and tools (enormous simplification)
 
 :: content ::
+
+<v-switch>
+<template #0>
+
+### **Core functionalities**
 
 <br>
 
@@ -129,12 +135,14 @@ flowchart LR
     Workflow Orchestration`"]
     IS["`**Information System**
     Resources & Status`"]
+    DIRAC(["`**DIRAC / DiracX**`"])
 
     style WMS fill:#bbf,stroke:#88c
     style DMS fill:#bfb,stroke:#8c8,stroke-width:2px
     style MD fill:#aaa,stroke:#aaa,stroke-width:2px
     style PROD fill:#eef,stroke:#8ec
     style IS fill:#fff,stroke:#000
+    style DIRAC fill:#f90,color:#000,stroke:#c60,stroke-width:3px
 
     PROD -->|submits jobs to| WMS
     PROD -->|gets data from| MD
@@ -144,8 +152,33 @@ flowchart LR
     PROD -->|gets data loc from| DMS
     WMS -->|gets data loc from| DMS
     DMS -->|gets data from| MD
+```
 
+</template>
+<template #1>
+
+# **JUNO**, **GridPP**
+Small-medium installations that want an all-in-one system
+
+```mermaid
+%%{init: { 'theme': 'default' }}%%
+flowchart TD
+    WMS["`**WMS**
+    Workload Management System`"]
+    DMS["`**DMS**
+    Data Management`"]
+    PROD["`**Production Management**
+    Workflow Orchestration`"]
+    IS["`**Information System**
+    Resources & Status`"]
+    MD["`**Metadata and provenance**`"]
     DIRAC(["`**DIRAC / DiracX**`"])
+
+    style WMS fill:#bbf,stroke:#88c
+    style DMS fill:#bfb,stroke:#8c8,stroke-width:2px
+    style PROD fill:#eef,stroke:#8ec
+    style IS fill:#fff,stroke:#000
+    style MD fill:#aaa,stroke:#aaa,stroke-width:2px
     style DIRAC fill:#f90,color:#000,stroke:#c60,stroke-width:3px
 
     WMS -->|implemented by| DIRAC
@@ -155,11 +188,122 @@ flowchart LR
     MD -->|implemented by| DIRAC
 ```
 
-<br>
+Old DIRAC was largely monolithic. DiracX emphasizes modularity and well-defined APIs.
 
-<AdmonitionType type='tip' >
-Small-medium installations (e.g. **JUNO**, **GridPP**) like it because it is an **all-in-one system**: one tool for jobs, data, productions
-</AdmonitionType>
+</template>
+<template #2>
+
+# **LHCb**
+Not a small installation, but the oldest and carrying legacy.
+
+```mermaid
+%%{init: { 'theme': 'default' }}%%
+flowchart TD
+    WMS["`**WMS**
+    Workload Management System`"]
+    DMS["`**DMS**
+    Data Management`"]
+    PROD["`**Production Management**
+    Workflow Orchestration`"]
+    IS["`**Information System**
+    Resources & Status`"]
+    MD["`**Metadata and provenance**`"]
+    DIRAC(["`**DIRAC / DiracX**`"])
+    BKK(["`**LHCb Bookkeeping**`"])
+
+    style WMS fill:#bbf,stroke:#88c
+    style DMS fill:#bfb,stroke:#8c8,stroke-width:2px
+    style PROD fill:#eef,stroke:#8ec
+    style IS fill:#fff,stroke:#000
+    style MD fill:#aaa,stroke:#aaa,stroke-width:2px
+    style DIRAC fill:#f90,color:#000,stroke:#c60,stroke-width:3px
+    style BKK fill:#aa1,color:#002,stroke:#eee,stroke-width:3px
+
+    WMS -->|implemented by| DIRAC
+    DMS -->|implemented by| DIRAC
+    PROD -->|implemented by| DIRAC
+    IS -->|implemented by| DIRAC
+    MD -->|implemented by| BKK
+```
+
+</template>
+<template #3>
+
+# **Belle2**, **CTAO**, and **FCC**
+The need for modularity comes also from existing DIRAC installations
+
+```mermaid
+%%{init: { 'theme': 'default' }}%%
+flowchart TD
+    WMS["`**WMS**
+    Workload Management System`"]
+    DMS["`**DMS**
+    Data Management`"]
+    PROD["`**Production Management**
+    Workflow Orchestration`"]
+    MD["`**Metadata and provenance**`"]
+    IS["`**Information System**
+    Resources & Status`"]
+    DIRAC(["`**DIRAC / DiracX**`"])
+    RUCIO(["`**Rucio**`"])
+
+    style WMS fill:#bbf,stroke:#88c
+    style DMS fill:#bfb,stroke:#8c8,stroke-width:2px
+    style PROD fill:#eef,stroke:#8ec
+    style IS fill:#fff,stroke:#000
+    style MD fill:#aaa,stroke:#aaa,stroke-width:2px
+    style DIRAC fill:#f90,color:#000,stroke:#c60,stroke-width:3px
+    style RUCIO fill:#4a9,color:#fff,stroke:#276,stroke-width:3px
+
+    WMS -->|implemented by| DIRAC
+    DMS -->|implemented by| RUCIO
+    PROD -->|implemented by| DIRAC
+    IS -->|implemented by| DIRAC
+    MD -->|implemented by| RUCIO
+```
+
+</template>
+<template #4>
+
+# **CMS**
+For CMS, modularity is a must.
+
+```mermaid
+%%{init: { 'theme': 'default' }}%%
+flowchart TD
+    WMS["`**WMS**
+    Workload Management System`"]
+    DMS["`**DMS**
+    Data Management`"]
+    PROD["`**Production Management**
+    Workflow Orchestration`"]
+    IS["`**Information System**
+    Resources & Status`"]
+    MD["`**Metadata and provenance**`"]
+    RUCIO(["`**Rucio**`"])
+    GLIDE(["`**GlideInWMS+HTCondor**`"])
+    CRIC(["`**CRIC**`"])
+    WM(["`**WMAgent**`"])
+    DBS(["`**DBS**`"])
+    DIRAC(["`**DiracX**`"])
+
+    style RUCIO fill:#4a9,color:#fff,stroke:#276,stroke-width:3px
+    style GLIDE fill:#56b,color:#fff,stroke:#235,stroke-width:3px
+    style CRIC fill:#19b,color:#000,stroke:#239,stroke-width:3px
+    style WM fill:#ee1,color:#003,stroke:#eee,stroke-width:3px
+    style MD fill:#aaa,stroke:#aaa,stroke-width:2px
+    style DBS fill:#0a1,color:#002,stroke:#eee,stroke-width:3px
+    style DIRAC fill:#f90,color:#000,stroke:#c60,stroke-width:3px
+
+    WMS -->|implemented by| GLIDE
+    DMS -->|implemented by| RUCIO
+    MD -->|implemented by| DBS
+    PROD -->|implemented by| WM -->|replaced by| DIRAC
+    IS -->|implemented by| CRIC
+```
+
+</template>
+</v-switch>
 
 ---
 layout: top-title
